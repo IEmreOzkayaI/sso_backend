@@ -57,8 +57,8 @@ passport.use(
 passport.use(
     new LinkedInStrategy(
         {
-            clientID: LINKEDIN_CLIENT_ID,
-            clientSecret: LINKEDIN_CLIENT_SECRET,
+            clientID: process.env.LINKEDIN_CLIENT_ID,
+            clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
             callbackURL: "/auth/linkedin/callback",
             scope: ['profile', 'email', 'openid'],
         },
@@ -71,8 +71,8 @@ passport.use(
 passport.use(
     new TwitterStrategy(
         {
-            clientID: process.env.TWITTER_CLIENT_ID,
-            clientSecret: process.env.TWITTER_CLIENT_SECRET,
+            consumerKey: process.env.TWITTER_CLIENT_ID,
+            consumerSecret: process.env.TWITTER_CLIENT_SECRET,
             callbackURL: "/auth/twitter/callback",
             scope: scopes
         },
