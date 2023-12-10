@@ -5,8 +5,8 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const app = express();
 const dotenv = require("dotenv");
-dotenv.config();
 const passportSetup = require("./passport");
+dotenv.config();
 
 app.use(
     cookieSession({name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100})
@@ -18,7 +18,7 @@ app.use(passport.session());
 
 app.use(
     cors({
-        origin: "http://localhost:3001",
+        origin: ["https://sso-front.netlify.app","http://localhost:3001"],
         methods: "GET,POST,PUT,DELETE",
         credentials: true,
     })
